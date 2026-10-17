@@ -1,0 +1,49 @@
+{
+  "name": "gta-vi-mission-control",
+  "version": "0.1.0",
+  "description": "Mission control for turning the GTA VI attention wave into money experiments.",
+  "main": "./out/main/index.js",
+  "author": "Chris DiMarco",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "npm run build && electron .",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "icon": "python3 scripts/generate-icon.py",
+    "test": "node scripts/self-check.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.3.1"
+  },
+  "build": {
+    "appId": "com.chrisdimarco.gtavimissioncontrol",
+    "productName": "GTA VI Mission Control",
+    "mac": {
+      "category": "public.app-category.business",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "icon": "resources/icon.icns"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "dist"
+    }
+  }
+}
